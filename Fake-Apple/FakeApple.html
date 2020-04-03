@@ -42,7 +42,7 @@
 
 <body>
   <div class="container">
-    <div id="productBtnGroup" class="row mb-3">
+    <div id="productBtnGroup" class="row mb-3 d-flex justify-content-center">
       <button id="iphone" type="button" class="product-btn btn btn-dark" onclick="InitProduct(this.innerText)">IPhone</button>
       <button id="ipad" type="button" class="product-btn btn btn-dark" onclick="InitProduct(this.innerText)">IPad</button>
       <button id="iphone" type="button" class="product-btn btn btn-dark" onclick="InitProduct(this.innerText)">MacPro</button>
@@ -52,8 +52,8 @@
         <img id="product-img" src="" class="img-fluid" alt="">
       </div>
       <div class="col-12 col-md-6">
-        <div id="color" class="row">
-          <!-- <button class="btn btn-outline-dark mb-2">
+        <div id="color" class="row" style="box-sizing: border-box;">
+          <!-- <button class="col-6 col-md-4 btn btn-outline-dark mb-2">
             <div class="p-5 d-flex flex-column justify-content-center align-items-center">
               <i class="fas fa-circle display-4"></i>
               <span>黑色</span>
@@ -61,7 +61,7 @@
           </button> -->
         </div>
         <div id="type" class="row">
-          <!-- <button class="btn btn-outline-dark mb-2">
+          <!-- <button class="col-6 col-md-4 btn btn-outline-dark mb-2">
             <div class="p-4 d-flex flex-column justify-content-center align-items-center">
               <p class="font-weight-bolder">64GB</p>
               <span>NT$24900</span>
@@ -155,26 +155,33 @@
       colorTitleH1.innerText = '顏色';
       colorTitle.classList.add('w-100');
       colorTitle.classList.add('d-flex');
-      colorTitle.classList.add('justify-content-start');
+      colorTitle.classList.add('justify-content-center');
+      colorTitle.classList.add('justify-content-md-start');
 
       colorTitle.appendChild(colorTitleH1);
 
       colorArea.appendChild(colorTitle);
 
       for (let item of Product[product].OutWard) {
+        let colorDiv = document.createElement('div');
         let colorBtn = document.createElement('button');
         let colorBtnDiv = document.createElement('div');
         let colorI = document.createElement('i');
         let colorSpan = document.createElement('span');
 
+        colorDiv.classList.add('col-6');
+        colorDiv.classList.add('col-md-4');
+
         colorBtn.classList.add('color-btn');
         colorBtn.classList.add('btn');
         colorBtn.classList.add('btn-outline-dark');
-        colorBtn.classList.add('mb-2');
+        colorBtn.classList.add('mb-3');
+        colorBtn.classList.add('w-100');
         colorBtn.setAttribute('urlVal', item.imageUrl);
 
-        colorBtnDiv.classList.add('p-5');
+        colorBtnDiv.classList.add('p-4');
         colorBtnDiv.classList.add('d-flex');
+        //colorBtnDiv.style.boxSizing = 'border-box';
         colorBtnDiv.classList.add('flex-column');
         colorBtnDiv.classList.add('justify-content-center');
         colorBtnDiv.classList.add('align-items-center');
@@ -190,8 +197,9 @@
         colorBtnDiv.appendChild(colorSpan);
 
         colorBtn.appendChild(colorBtnDiv);
+        colorDiv.appendChild(colorBtn);
 
-        colorArea.appendChild(colorBtn);
+        colorArea.appendChild(colorDiv);
       }
 
       let colorBtns = document.getElementsByClassName('color-btn');
@@ -211,22 +219,28 @@
       typeTitleH1.innerText = '規格';
       typeTitle.classList.add('w-100');
       typeTitle.classList.add('d-flex');
-      typeTitle.classList.add('justify-content-start');
+      typeTitle.classList.add('justify-content-center');
+      typeTitle.classList.add('justify-content-md-start');
 
       typeTitle.appendChild(typeTitleH1);
 
       typeArea.appendChild(typeTitle);
 
       for (let item of Product[product].Spec.Storge) {
+        let typeDiv = document.createElement('div');
         let typeBtn = document.createElement('button');
         let typeBtnDiv = document.createElement('div');
         let typeP = document.createElement('p');
         let typeSpan = document.createElement('span');
 
+        typeDiv.classList.add('col-6');
+        typeDiv.classList.add('col-md-4')
+
         typeBtn.classList.add('type-btn');
         typeBtn.classList.add('btn');
         typeBtn.classList.add('btn-outline-dark');
-        typeBtn.classList.add('mb-2');
+        typeBtn.classList.add('mb-3');
+        typeBtn.classList.add('w-100');
         typeBtn.setAttribute('fit', item.fit);
 
         typeBtnDiv.classList.add('p-4');
@@ -244,8 +258,9 @@
         typeBtnDiv.appendChild(typeSpan);
 
         typeBtn.appendChild(typeBtnDiv);
+        typeDiv.appendChild(typeBtn);
 
-        typeArea.appendChild(typeBtn);
+        typeArea.appendChild(typeDiv);
       }
 
       let typeBtns = document.getElementsByClassName('type-btn');
@@ -257,7 +272,8 @@
       priceTitleH1.innerText = '價格試算';
       priceTitle.classList.add('w-100');
       priceTitle.classList.add('d-flex');
-      priceTitle.classList.add('justify-content-start');
+      priceTitle.classList.add('justify-content-center');
+      priceTitle.classList.add('justify-content-md-start');
 
       priceTitle.appendChild(priceTitleH1);
 
@@ -274,7 +290,8 @@
           priceTitleH1.innerText = '價格試算';
           priceTitle.classList.add('w-100');
           priceTitle.classList.add('d-flex');
-          priceTitle.classList.add('justify-content-start');
+          priceTitle.classList.add('justify-content-center');
+          priceTitle.classList.add('justify-content-md-start');
 
           priceTitle.appendChild(priceTitleH1);
 
@@ -283,12 +300,21 @@
           //顯示試算結果
           let fit = item.getAttributeNode('fit').value;
 
+          let priceDiv = document.createElement('div');
           let priceP = document.createElement('p');
+
+          priceDiv.classList.add('col-12');
+          priceDiv.classList.add('d-flex');
+          priceDiv.classList.add('justify-content-center');
+          priceDiv.classList.add('justify-content-md-start');
+
           priceP.classList.add('display-4');
           priceP.classList.add('font-weight-bolder');
           priceP.innerText = `NT$${fit}`;
 
-          priceArea.appendChild(priceP);
+          priceDiv.appendChild(priceP);
+
+          priceArea.appendChild(priceDiv);
         });
       }
     }
