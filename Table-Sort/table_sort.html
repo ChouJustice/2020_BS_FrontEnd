@@ -108,7 +108,7 @@
       //用prop排序
       let sortResult = Products.sort(function (a, b) {
         if (!isDesc) {
-          if(typeof(el.innerText) == 'string')
+          if(typeof(a[el.innerText]) == 'string')
           {
             if(a[el.innerText] >= b[el.innerText])
             {
