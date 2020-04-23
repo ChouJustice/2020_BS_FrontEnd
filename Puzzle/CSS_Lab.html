@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <title>Hello, world!</title>
+
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    /* 
+    #puzzle-area * {
+      vertical-align: bottom;
+    } 
+    */
+    #puzzle-area > div {
+      display: table-row;
+    }
+
+    [class^=Position] {
+      display: table-cell;
+      width: 202.5px;
+      height: 202.5px;
+      border: 1px solid #777777;
+      background-image: url('./star_405_square.jpg');
+      cursor: pointer;
+    }
+
+    .Position1 { background-position: left top; }
+    .Position2 { background-position: right top; }
+    .Position3 { background-position: left bottom; }
+    .Position4 { background: white; cursor: default; }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <div id="puzzle-area">
+          <div>
+            <div id="P11" class="Position1"></div>
+            <div id="P12" class="Position2"></div>
+          </div>
+          <div>
+            <div id="P21" class="Position3"></div>
+            <div id="P22" class="Position4"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <div>
+          <!-- 控制區 -->
+          <button type="button" name="" id="ButtonStart" class="btn btn-primary">打亂</button>
+          <button type="button" name="" id="ButtonReturn" class="btn btn-primary">排回去</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+
+    //切好的圖原始史的樣子就是答案
+    // --記錄這個答案
+      //1. position top bottom left right
+      //2. 自定義座標
+
+    //打亂拼圖
+      //1.先實作走的方式
+
+  </script>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
